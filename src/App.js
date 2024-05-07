@@ -1,25 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Calculator from './components/Calculator';
+import AuthProvider from './hooks/AuthProvider';
+import PrivateRoute from './hooks/PrivateRoute';
+import Records from './components/Records';
+import StringGenerator from './components/StringGenerator';
+import Profile from './components/Profile';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <AuthProvider>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/" element={<Calculator />} />
+            </Route>
+            <Route element={<PrivateRoute />}>
+              <Route path="/calculator" element={<Calculator />} />
+            </Route>
+            <Route element={<PrivateRoute />}>
+              <Route path="/operations" element={<Records />} />
+            </Route>
+            <Route element={<PrivateRoute />}>
+              <Route path="/generator" element={<StringGenerator />} />
+            </Route>
+            <Route element={<PrivateRoute />}>
+              <Route path="/profile" element={<Profile />} />
+            </Route>
+          </Routes>
+        </AuthProvider>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;

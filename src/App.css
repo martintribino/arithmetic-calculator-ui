@@ -1,31 +1,103 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.Login, .Profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 50pt;
+  button {
+    margin-top: 10pt;
+  }
+  .loginField {
+    margin-top: 10pt;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.partialResult{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  p {
+    margin: 0 2pt;
+    color: #1976d2;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+}
+
+.alert {
+  margin: 5pt 0;
+}
+
+.Calculator {
+  display: flex;
+  flex-direction: column;
+  max-width: 250pt;
+  .display {
+    margin: 10pt 0;
+    input {
+      color: #1976d2;
+    }
+  }
+}
+
+.Generator {
+  min-width: 350pt;
+  display: flex;
+  flex-direction: column;
+  max-width: 250pt;
+  .display {
+    margin: 10pt 0;
+    input {
+      color: #1976d2;
+    }
+  }
+}
+
+.Operations {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+a {
+  color: #fff;
+  margin: 0 5pt;
+  text-decoration-line: none;
+  font-weight: 400;
+}
+
+a.active {
+  font-weight: 700;
+}
+
+.NavBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Outlet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10pt;
+}
+
+.error {
+  color: red;
+  margin-top: 10pt;
 }
 
 @keyframes App-logo-spin {
